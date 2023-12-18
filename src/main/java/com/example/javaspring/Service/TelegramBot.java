@@ -29,10 +29,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                         startCommandReceived(chatId,
                                 update.getMessage().getChat().getFirstName());
                         break;
-                case "/hui":
-                        startCommandGtfo(chatId,
-                                update.getMessage().getChat().getFirstName());
-                        break;
                 default:
                     sendMessage(chatId, "Sorry, command was not recognized");
                 }
@@ -47,14 +43,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         sendMessage(chatId,answer);
     }
 
-    private void startCommandGtfo(long chatId, String firstName) {
-        final String ytLink =
-                "https://www.youtube.com/watch?v=1Qo35ldlvWo&pp=ygUu0LLRiyDQutGC0L4g0YLQsNC60LjQtSDRjyDQstCw0YEg0L3QtSDQt9Cy0LDQuw%3D%3D";
-        String answer = "Сам ты хуй, " + firstName;
-        sendMessage(chatId,answer);
-        sendMessage(chatId,ytLink);
-    }
-
+    
     private void sendMessage(long chatId, String textToSend) {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
